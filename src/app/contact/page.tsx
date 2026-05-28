@@ -58,7 +58,7 @@ export default function ContactPage() {
 
                 <div className="rounded-lg border border-line bg-paper p-6 shadow-card">
                   <h3 className="font-serif text-xl tracking-tightest text-ink">
-                    Prefer email or phone?
+                    Reach us directly
                   </h3>
                   <ul className="mt-4 space-y-2 text-sm">
                     <li>
