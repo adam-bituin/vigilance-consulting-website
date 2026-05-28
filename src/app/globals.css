@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+    font-optical-sizing: auto;
+    /* Inter: contextual alternates + disambiguated l/I + round punctuation */
+    font-feature-settings: "calt" 1, "cv05" 1, "cv08" 1, "ss03" 1;
+    text-rendering: optimizeLegibility;
+  }
+  .font-serif {
+    font-optical-sizing: auto;
+    /* Spectral: oldstyle figures read more editorial in headlines */
+    font-variant-numeric: oldstyle-nums proportional-nums;
+  }
+  ::selection {
+    @apply bg-brand text-paper;
+  }
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-container px-6 md:px-10;
+  }
+
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.3s ease;
+  }
+  .link-underline:hover {
+    background-size: 100% 1px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .link-underline {
+    transition: none;
+  }
+}
