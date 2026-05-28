@@ -3,6 +3,7 @@ import { hero } from "@/content/stats";
 import { site } from "@/content/site";
 import { FounderPortrait } from "./FounderPortrait";
 import { HeroBackdrop } from "./HeroBackdrop";
+import { PartnerBadge } from "./PartnerBadge";
 import { Reveal } from "./Reveal";
 
 export function Hero() {
@@ -30,12 +31,16 @@ export function Hero() {
           </Reveal>
 
           <Reveal delay={0.16}>
+            <PartnerBadge className="mt-6" />
+          </Reveal>
+
+          <Reveal delay={0.24}>
             <p className="mt-6 max-w-2xl text-lg text-ink/65 md:text-xl">
               {hero.sub}
             </p>
           </Reveal>
 
-          <Reveal delay={0.24}>
+          <Reveal delay={0.32}>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <Link
                 href="/contact"
@@ -44,14 +49,12 @@ export function Hero() {
                 {site.cta.primary}
                 <span aria-hidden>→</span>
               </Link>
-              <a
-                href={site.coursesUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/training"
                 className="inline-flex items-center gap-2 rounded-full border border-ink/15 px-6 py-3.5 text-base font-medium text-ink transition-all duration-200 hover:-translate-y-0.5 hover:bg-ink hover:text-paper"
               >
                 {site.cta.secondary}
-              </a>
+              </Link>
             </div>
           </Reveal>
         </div>

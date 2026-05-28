@@ -10,12 +10,18 @@ export const site = {
   phone: "+973 17226000",
   address: "P. O. Box 16116, Adliya, Bahrain",
   coursesUrl: "https://partnership.kpiinstitute.org/scheduled-courses/",
+  partner: {
+    label: "Official Partner of",
+    name: "The KPI Institute",
+    logoSrc: "/kpi-institute.svg",
+  },
   cta: {
     primary: "Book a consultation",
     secondary: "See our courses",
   },
   nav: [
     { label: "Services", href: "/services" },
+    { label: "Training", href: "/training" },
     { label: "About", href: "/about" },
     { label: "Insights", href: "/insights" },
     { label: "Contact", href: "/contact" },
