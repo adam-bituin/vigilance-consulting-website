@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
+import { AbstractBackdrop } from "@/components/AbstractBackdrop";
 import { site } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -21,6 +22,13 @@ export default function InsightsPage() {
       />
 
       <section className="relative isolate overflow-hidden border-b border-line bg-paper">
+        <AbstractBackdrop
+          src="/bg-testimonial.webp"
+          opacity={0.22}
+          parallax={50}
+          imgClassName="object-cover object-center"
+          maskClassName="[mask-image:radial-gradient(50%_55%_at_50%_38%,#000,transparent_72%)]"
+        />
         <div
           aria-hidden
           className="pointer-events-none absolute left-1/2 top-8 -z-10 h-56 w-56 -translate-x-1/2 rounded-full bg-brand-soft blur-3xl motion-safe:animate-float"

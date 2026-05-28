@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/PageHero";
 import { LeadForm } from "@/components/LeadForm";
 import { Reveal } from "@/components/Reveal";
+import { AbstractBackdrop } from "@/components/AbstractBackdrop";
 import { site } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -20,7 +21,15 @@ export default function ContactPage() {
         sub="A three-step inquiry, then a real conversation with a senior practitioner — not a sales call."
       />
 
-      <section className="border-b border-line bg-muted">
+      <section className="relative isolate overflow-hidden border-b border-line bg-muted">
+        <AbstractBackdrop
+          src="/bg-cta.webp"
+          opacity={0.16}
+          parallax={50}
+          className="left-auto right-0 w-3/5 md:w-1/2"
+          imgClassName="object-cover object-right"
+          maskClassName="[mask-image:linear-gradient(to_left,#000_5%,transparent_80%)]"
+        />
         <div className="container-x py-20 md:py-28">
           <div className="grid gap-12 md:grid-cols-12">
             <Reveal className="md:col-span-7">

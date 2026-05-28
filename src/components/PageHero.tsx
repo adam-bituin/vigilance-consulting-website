@@ -1,4 +1,5 @@
 import { Reveal } from "./Reveal";
+import { AbstractBackdrop } from "./AbstractBackdrop";
 
 type PageHeroProps = {
   eyebrow: string;
@@ -10,6 +11,14 @@ type PageHeroProps = {
 export function PageHero({ eyebrow, title, titleAccent, sub }: PageHeroProps) {
   return (
     <section className="relative isolate overflow-hidden border-b border-line text-ink">
+      <AbstractBackdrop
+        src="/bg-accent.webp"
+        opacity={0.45}
+        parallax={70}
+        className="left-auto right-0 w-3/5 md:w-1/2"
+        imgClassName="object-cover object-center"
+        maskClassName="[mask-image:linear-gradient(to_left,#000_5%,transparent_82%)]"
+      />
       <div className="container-x relative py-20 md:py-28 lg:py-32">
         <div className="max-w-3xl">
           <Reveal>

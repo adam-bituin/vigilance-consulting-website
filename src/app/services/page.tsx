@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/PageHero";
 import { CTASection } from "@/components/CTASection";
 import { Reveal } from "@/components/Reveal";
+import { AbstractBackdrop } from "@/components/AbstractBackdrop";
 import { services } from "@/content/services";
 
 export const metadata: Metadata = {
@@ -20,7 +21,17 @@ export default function ServicesPage() {
         sub="Strategy decks don't move numbers. We build the scorecards, train the managers, and certify the methods that keep results compounding after we leave."
       />
 
-      <section aria-label="Services overview" className="border-b border-line">
+      <section
+        aria-label="Services overview"
+        className="relative isolate overflow-hidden border-b border-line"
+      >
+        <AbstractBackdrop
+          src="/bg-testimonial.webp"
+          opacity={0.2}
+          parallax={50}
+          imgClassName="object-cover object-center"
+          maskClassName="[mask-image:radial-gradient(55%_50%_at_50%_22%,#000,transparent_72%)]"
+        />
         <div className="container-x py-16 md:py-20">
           <Reveal>
             <span className="text-xs font-medium uppercase tracking-[0.18em] text-brand">

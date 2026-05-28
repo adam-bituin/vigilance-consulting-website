@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { services } from "@/content/services";
 import { Reveal } from "./Reveal";
 import { TiltCard } from "./TiltCard";
+import { AbstractBackdrop } from "./AbstractBackdrop";
 
 const iconPaths: Record<string, ReactNode> = {
   strategy: (
@@ -58,8 +59,16 @@ export function ServicePillars() {
     <section
       id="services"
       aria-label="Service pillars"
-      className="relative isolate border-b border-line"
+      className="relative isolate overflow-hidden border-b border-line"
     >
+      <AbstractBackdrop
+        src="/bg-accent.webp"
+        opacity={0.3}
+        parallax={90}
+        className="left-auto right-0 w-2/3 md:w-1/2"
+        imgClassName="object-cover object-right"
+        maskClassName="[mask-image:linear-gradient(to_left,#000_10%,transparent_85%)]"
+      />
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"

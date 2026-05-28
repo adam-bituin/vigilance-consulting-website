@@ -1,9 +1,20 @@
 import { Reveal } from "./Reveal";
+import { AbstractBackdrop } from "./AbstractBackdrop";
 import { testimonial, clients } from "@/content/testimonials";
 
 export function Testimonial() {
   return (
-    <section aria-label="Client testimonial" className="border-b border-line">
+    <section
+      aria-label="Client testimonial"
+      className="relative isolate overflow-hidden border-b border-line"
+    >
+      <AbstractBackdrop
+        src="/bg-testimonial.webp"
+        opacity={0.32}
+        parallax={50}
+        imgClassName="object-cover object-center"
+        maskClassName="[mask-image:radial-gradient(60%_60%_at_50%_50%,#000,transparent_72%)]"
+      />
       <div className="container-x py-20 md:py-28">
         <Reveal>
           <figure className="mx-auto max-w-3xl text-center">

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/PageHero";
 import { CTASection } from "@/components/CTASection";
 import { Reveal } from "@/components/Reveal";
+import { AbstractBackdrop } from "@/components/AbstractBackdrop";
 import { certifications } from "@/content/certifications";
 import { site } from "@/content/site";
 
@@ -36,7 +37,18 @@ export default function TrainingPage() {
         sub="As the official partner of The KPI Institute (Australia), Vigilance Consulting delivers certified programs across strategy, KPIs, OKRs, ROI, and leadership — in English and Arabic, for public and private sector teams in Bahrain and the GCC."
       />
 
-      <section aria-label="Why train with us" className="border-b border-line">
+      <section
+        aria-label="Why train with us"
+        className="relative isolate overflow-hidden border-b border-line"
+      >
+        <AbstractBackdrop
+          src="/bg-testimonial.webp"
+          opacity={0.2}
+          parallax={50}
+          className="left-auto right-0 w-3/5 md:w-1/2"
+          imgClassName="object-cover object-center"
+          maskClassName="[mask-image:radial-gradient(55%_60%_at_72%_42%,#000,transparent_74%)]"
+        />
         <div className="container-x py-16 md:py-20">
           <Reveal>
             <span className="text-xs font-medium uppercase tracking-[0.18em] text-brand">

@@ -3,6 +3,7 @@ import { PageHero } from "@/components/PageHero";
 import { CTASection } from "@/components/CTASection";
 import { Reveal } from "@/components/Reveal";
 import { TiltCard } from "@/components/TiltCard";
+import { AbstractBackdrop } from "@/components/AbstractBackdrop";
 import { PartnerLogo } from "@/components/PartnerLogo";
 import { about } from "@/content/about";
 import { site } from "@/content/site";
@@ -91,7 +92,15 @@ export default function AboutPage() {
       </section>
 
       {/* KPI Institute partnership */}
-      <section className="border-b border-line bg-muted">
+      <section className="relative isolate overflow-hidden border-b border-line bg-muted">
+        <AbstractBackdrop
+          src="/bg-testimonial.webp"
+          opacity={0.2}
+          parallax={50}
+          className="right-auto left-0 w-3/5 md:w-1/2"
+          imgClassName="object-cover object-center"
+          maskClassName="[mask-image:radial-gradient(55%_60%_at_25%_45%,#000,transparent_74%)]"
+        />
         <div className="container-x py-20 md:py-28">
           <div className="grid gap-12 md:grid-cols-12">
             <div className="md:col-span-4">

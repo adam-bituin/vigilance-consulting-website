@@ -1,10 +1,18 @@
 import Link from "next/link";
 import { site } from "@/content/site";
 import { Reveal } from "./Reveal";
+import { AbstractBackdrop } from "./AbstractBackdrop";
 
 export function CTASection() {
   return (
     <section className="relative isolate overflow-hidden border-b border-line">
+      <AbstractBackdrop
+        src="/bg-cta.webp"
+        opacity={0.6}
+        parallax={70}
+        imgClassName="object-cover object-right"
+        maskClassName="[mask-image:linear-gradient(to_right,transparent_0%,transparent_30%,#000_85%)]"
+      />
       <div className="container-x py-20 md:py-28">
         <Reveal>
           <div className="grid items-end gap-8 md:grid-cols-12">
