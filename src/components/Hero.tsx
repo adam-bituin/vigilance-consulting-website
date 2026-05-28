@@ -44,12 +44,14 @@ export function Hero() {
                 {site.cta.primary}
                 <span aria-hidden>→</span>
               </Link>
-              <Link
-                href="/services"
+              <a
+                href={site.coursesUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full border border-ink/15 px-6 py-3.5 text-base font-medium text-ink transition-all duration-200 hover:-translate-y-0.5 hover:bg-ink hover:text-paper"
               >
                 {site.cta.secondary}
-              </Link>
+              </a>
             </div>
           </Reveal>
         </div>

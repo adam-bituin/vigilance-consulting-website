@@ -6,11 +6,13 @@ export const site = {
     "We help organizations turn strategy into measurable performance — through KPIs, OKRs, leadership development, and ROI-driven training.",
   // Live Vercel URL — swap for the custom domain once it's connected.
   url: "https://vigilance-consulting-website.vercel.app",
-  email: "hello@vigilance.consulting",
-  phone: "+1 (555) 010-0100",
+  email: "info@vigilanceconsulting.com",
+  phone: "+973 17226000",
+  address: "P. O. Box 16116, Adliya, Bahrain",
+  coursesUrl: "https://partnership.kpiinstitute.org/scheduled-courses/",
   cta: {
     primary: "Book a consultation",
-    secondary: "See our services",
+    secondary: "See our courses",
   },
   nav: [
     { label: "Services", href: "/services" },

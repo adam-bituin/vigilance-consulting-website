@@ -42,7 +42,6 @@ export const about = {
         body: "Redesigning inefficient, costly processes for internal consistency and best-fit alignment with strategy — increasing the value-added, reducing the non-value-added, and eliminating waste.",
       },
     ],
-    ctaHref: "/services",
-    ctaLabel: "See our services",
+    ctaLabel: "See our courses",
   },
 } as const;

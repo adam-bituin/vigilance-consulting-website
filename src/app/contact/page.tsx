@@ -77,6 +77,7 @@ export default function ContactPage() {
                         {site.phone}
                       </a>
                     </li>
+                    <li className="pt-1 text-ink/70">{site.address}</li>
                   </ul>
                 </div>
               </Reveal>

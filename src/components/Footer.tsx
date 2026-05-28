@@ -70,6 +70,7 @@ export function Footer() {
                 {site.phone}
               </a>
             </li>
+            <li className="text-ink/70">{site.address}</li>
           </ul>
         </div>
       </div>

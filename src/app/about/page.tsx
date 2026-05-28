@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { PageHero } from "@/components/PageHero";
 import { CTASection } from "@/components/CTASection";
 import { Reveal } from "@/components/Reveal";
 import { TiltCard } from "@/components/TiltCard";
 import { PartnerLogo } from "@/components/PartnerLogo";
 import { about } from "@/content/about";
+import { site } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "About",
@@ -155,8 +155,10 @@ export default function AboutPage() {
           </ul>
 
           <Reveal delay={0.16}>
-            <Link
-              href={about.expertise.ctaHref}
+            <a
+              href={site.coursesUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group mt-10 inline-flex items-center gap-1.5 text-sm font-medium text-brand"
             >
               {about.expertise.ctaLabel}
@@ -166,7 +168,7 @@ export default function AboutPage() {
               >
                 →
               </span>
-            </Link>
+            </a>
           </Reveal>
         </div>
       </section>
