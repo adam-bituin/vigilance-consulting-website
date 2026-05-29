@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   motion,
   useReducedMotion,
@@ -34,15 +34,30 @@ export function AbstractBackdrop({
   const [failed, setFailed] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
-  // Section-anchored parallax. `layoutEffect: false` defers measurement to a
-  // post-paint effect, avoiding the "ref is defined but not hydrated" error
-  // that `useScroll({ target })` throws under Next 16 / React 19 streaming.
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-    layoutEffect: false,
-  });
-  const y = useTransform(scrollYProgress, [0, 1], [-parallax, parallax]);
+  // Section-anchored parallax driven off GLOBAL scroll. A target-ref
+  // `useScroll({ target })` throws "ref is defined but not hydrated" under
+  // Next 16 / React 19 streaming, so we measure the element's document
+  // position and map the scroll span it travels through the viewport onto a
+  // small drift. `measured` keeps SSR and first client render identical.
+  const { scrollY } = useScroll();
+  const [span, setSpan] = useState<[number, number]>([0, 1]);
+  const [measured, setMeasured] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const measure = () => {
+      const rect = el.getBoundingClientRect();
+      const top = rect.top + window.scrollY;
+      setSpan([top - window.innerHeight, top + rect.height]);
+      setMeasured(true);
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, []);
+
+  const y = useTransform(scrollY, span, [-parallax, parallax]);
 
   if (failed) return null;
 
@@ -53,7 +68,7 @@ export function AbstractBackdrop({
       className={`pointer-events-none absolute inset-0 -z-10 overflow-hidden ${className}`}
     >
       <motion.div
-        style={reduce ? undefined : { y, willChange: "transform" }}
+        style={reduce || !measured ? undefined : { y, willChange: "transform" }}
         className="absolute -inset-y-24 inset-x-0"
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
