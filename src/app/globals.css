@@ -10,6 +10,19 @@
     font-feature-settings: "calt" 1, "cv05" 1, "cv08" 1, "ss03" 1;
     text-rendering: optimizeLegibility;
   }
+  /* In Arabic (RTL) re-point the type tokens at the Arabic faces, so every
+     existing font-sans / font-serif utility picks them up automatically. */
+  html[dir="rtl"] {
+    --font-sans: var(--font-arabic);
+    --font-serif: var(--font-arabic-serif);
+  }
+  html[dir="rtl"] body {
+    /* Inter-specific OpenType features don't apply to the Arabic face. */
+    font-feature-settings: normal;
+  }
+  html[dir="rtl"] .font-serif {
+    font-variant-numeric: normal;
+  }
   .font-serif {
     font-optical-sizing: auto;
     /* Spectral: oldstyle figures read more editorial in headlines */

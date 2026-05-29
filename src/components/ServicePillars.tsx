@@ -1,6 +1,7 @@
-import Link from "next/link";
 import type { ReactNode } from "react";
-import { services } from "@/content/services";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
+import { services, type ServiceOffering } from "@/content/services";
 import { Reveal } from "./Reveal";
 import { TiltCard } from "./TiltCard";
 import { AbstractBackdrop } from "./AbstractBackdrop";
@@ -54,18 +55,21 @@ function PracticeIcon({ id }: { id: string }) {
   );
 }
 
-export function ServicePillars() {
+export async function ServicePillars() {
+  const t = await getTranslations("servicePillars");
+  const tServices = await getTranslations("services");
+
   return (
     <section
       id="services"
-      aria-label="Service pillars"
+      aria-label={t("aria")}
       className="relative isolate overflow-hidden border-b border-line"
     >
       <AbstractBackdrop
         src="/bg-accent.webp"
         opacity={0.3}
         parallax={90}
-        className="left-auto right-0 w-2/3 md:w-1/2"
+        className="start-auto end-0 w-2/3 md:w-1/2"
         imgClassName="object-cover object-right"
         maskClassName="[mask-image:linear-gradient(to_left,#000_10%,transparent_85%)]"
       />
@@ -73,7 +77,7 @@ export function ServicePillars() {
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
       >
-        <div className="absolute right-[6%] top-1/3 h-[55vh] w-[55vh] -translate-y-1/3 rounded-full bg-brand-soft opacity-25 blur-[130px]" />
+        <div className="absolute end-[6%] top-1/3 h-[55vh] w-[55vh] -translate-y-1/3 rounded-full bg-brand-soft opacity-25 blur-[130px]" />
         <div className="absolute inset-0 opacity-40 [background-image:radial-gradient(circle,rgba(10,10,10,0.04)_1px,transparent_1px)] [background-size:26px_26px] [mask-image:radial-gradient(75%_60%_at_62%_42%,#000,transparent_80%)]" />
       </div>
 
@@ -82,22 +86,21 @@ export function ServicePillars() {
           <div className="md:col-span-5 md:sticky md:top-28 md:self-start">
             <Reveal>
               <span className="text-xs font-medium uppercase tracking-[0.18em] text-brand">
-                What we do
+                {t("label")}
               </span>
               <h2 className="mt-4 font-serif text-4xl leading-tight tracking-tightest md:text-5xl">
-                Four practices, built to work as one system.
+                {t("heading")}
               </h2>
-              <p className="mt-6 max-w-md text-ink/70">
-                Most consulting stops at the strategy deck. We build the
-                scorecards, train the managers, and certify the methods that
-                keep results compounding after we leave.
-              </p>
+              <p className="mt-6 max-w-md text-ink/70">{t("intro")}</p>
             </Reveal>
           </div>
 
           <div className="md:col-span-7">
             <ul className="grid gap-5 md:gap-6">
               {services.map((s, i) => {
+                const offerings = tServices.raw(
+                  `items.${s.id}.offerings`,
+                ) as ServiceOffering[];
                 return (
                   <li key={s.id}>
                     <Reveal delay={i * 0.08}>
@@ -119,17 +122,17 @@ export function ServicePillars() {
 
                           <div>
                             <h3 className="font-serif text-2xl tracking-tightest text-ink md:text-3xl">
-                              {s.title}
+                              {tServices(`items.${s.id}.title`)}
                             </h3>
                             <p className="mt-2 max-w-md text-sm text-ink/65 md:text-base">
-                              {s.summary}
+                              {tServices(`items.${s.id}.summary`)}
                             </p>
                           </div>
 
                           <div className="grid grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none md:grid-rows-[0fr] md:group-focus-within:grid-rows-[1fr] md:group-hover:grid-rows-[1fr] motion-reduce:md:!grid-rows-[1fr]">
                             <div className="overflow-hidden">
                               <ul className="flex flex-wrap gap-x-2 gap-y-1.5 pt-1 text-xs text-ink/70 md:pt-3">
-                                {s.offerings.map((o) => (
+                                {offerings.map((o) => (
                                   <li
                                     key={o.name}
                                     className="rounded-full border border-line bg-muted/70 px-2.5 py-1"
@@ -142,10 +145,10 @@ export function ServicePillars() {
                           </div>
 
                           <span className="mt-1 inline-flex items-center gap-1.5 text-sm font-medium text-brand">
-                            Explore
+                            {t("explore")}
                             <span
                               aria-hidden
-                              className="transition-transform duration-200 group-hover:translate-x-1"
+                              className="transition-transform duration-200 group-hover:translate-x-1 rtl:-scale-x-100 rtl:group-hover:-translate-x-1"
                             >
                               →
                             </span>

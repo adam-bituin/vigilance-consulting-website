@@ -1,24 +1,45 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { AbstractBackdrop } from "@/components/AbstractBackdrop";
 import { site } from "@/content/site";
 
-export const metadata: Metadata = {
-  title: "Insights",
-  description:
-    "Field notes from the work — scorecards, leadership, ROI methodology, and what we're learning from current engagements.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "metadata" });
+  return {
+    title: t("insights.title"),
+    description: t("insights.description"),
+    alternates: {
+      canonical: locale === "en" ? "/insights" : `/${locale}/insights`,
+      languages: { en: "/insights", ar: "/ar/insights" },
+    },
+  };
+}
 
-export default function InsightsPage() {
+export default async function InsightsPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("insights");
+  const tCta = await getTranslations("cta");
+
   return (
     <>
       <PageHero
-        eyebrow="Insights"
-        title="Field notes from"
-        titleAccent="the work."
-        sub="Short, honest pieces on what works in execution, leadership, and measurement — drawn from the engagements we're inside right now."
+        eyebrow={t("hero.eyebrow")}
+        title={t("hero.title")}
+        titleAccent={t("hero.titleAccent")}
+        sub={t("hero.sub")}
       />
 
       <section className="relative isolate overflow-hidden border-b border-line bg-paper">
@@ -37,22 +58,21 @@ export default function InsightsPage() {
           <Reveal className="mx-auto max-w-2xl text-center">
             <div className="inline-flex items-center gap-2 rounded-full border border-line bg-muted px-4 py-1.5 text-xs uppercase tracking-widest text-subtle shadow-card">
               <span className="h-1.5 w-1.5 rounded-full bg-brand" />
-              Coming soon
+              {t("comingSoon")}
             </div>
             <h2 className="mt-6 font-serif text-3xl leading-tight tracking-tightest md:text-5xl">
-              The first essays are being written.
+              {t("heading")}
             </h2>
-            <p className="mt-6 text-lg text-ink/70">
-              Insights launch alongside our first published case studies. If
-              you&apos;d like to be notified when they go live, get in touch.
-            </p>
+            <p className="mt-6 text-lg text-ink/70">{t("body")}</p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 text-base font-medium text-paper shadow-card transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand hover:shadow-lift"
               >
-                {site.cta.primary}
-                <span aria-hidden>→</span>
+                {tCta("primary")}
+                <span aria-hidden className="rtl:-scale-x-100">
+                  →
+                </span>
               </Link>
               <a
                 href={site.coursesUrl}
@@ -60,7 +80,7 @@ export default function InsightsPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full border border-line px-6 py-3.5 text-base font-medium text-ink transition-all duration-200 hover:-translate-y-0.5 hover:bg-muted hover:shadow-card"
               >
-                {site.cta.secondary}
+                {tCta("secondary")}
               </a>
             </div>
           </Reveal>

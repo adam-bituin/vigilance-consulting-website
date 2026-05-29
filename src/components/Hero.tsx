@@ -1,13 +1,15 @@
-import Link from "next/link";
-import { hero } from "@/content/stats";
-import { site } from "@/content/site";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import { FounderPortrait } from "./FounderPortrait";
 import { HeroBackdrop } from "./HeroBackdrop";
 import { HeroVideo } from "./HeroVideo";
 import { PartnerBadge } from "./PartnerBadge";
 import { Reveal } from "./Reveal";
 
-export function Hero() {
+export async function Hero() {
+  const t = await getTranslations("hero");
+  const tCta = await getTranslations("cta");
+
   return (
     <section className="relative isolate overflow-hidden text-ink">
       <HeroVideo />
@@ -20,15 +22,15 @@ export function Hero() {
           <Reveal>
             <span className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-ink/65">
               <span className="h-px w-8 bg-brand" />
-              {hero.eyebrow}
+              {t("eyebrow")}
               <span className="h-px w-8 bg-brand" />
             </span>
           </Reveal>
 
           <Reveal delay={0.08}>
             <h1 className="mt-5 max-w-4xl font-serif text-5xl leading-[1.02] tracking-display text-ink md:text-6xl lg:text-7xl">
-              {hero.headlinePrefix}{" "}
-              <span className="text-brand">{hero.headlineAccent}</span>
+              {t("headlinePrefix")}{" "}
+              <span className="text-brand">{t("headlineAccent")}</span>
             </h1>
           </Reveal>
 
@@ -38,7 +40,7 @@ export function Hero() {
 
           <Reveal delay={0.24}>
             <p className="mt-6 max-w-2xl text-lg text-ink/65 md:text-xl">
-              {hero.sub}
+              {t("sub")}
             </p>
           </Reveal>
 
@@ -48,14 +50,16 @@ export function Hero() {
                 href="/contact"
                 className="inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3.5 text-base font-medium text-paper shadow-card transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-hover hover:shadow-lift"
               >
-                {site.cta.primary}
-                <span aria-hidden>→</span>
+                {tCta("primary")}
+                <span aria-hidden className="rtl:-scale-x-100">
+                  →
+                </span>
               </Link>
               <Link
                 href="/training"
                 className="inline-flex items-center gap-2 rounded-full border border-ink/15 px-6 py-3.5 text-base font-medium text-ink transition-all duration-200 hover:-translate-y-0.5 hover:bg-ink hover:text-paper"
               >
-                {site.cta.secondary}
+                {tCta("secondary")}
               </Link>
             </div>
           </Reveal>

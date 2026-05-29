@@ -1,11 +1,13 @@
+import { getTranslations } from "next-intl/server";
 import { Reveal } from "./Reveal";
 import { AbstractBackdrop } from "./AbstractBackdrop";
-import { testimonial, clients } from "@/content/testimonials";
 
-export function Testimonial() {
+export async function Testimonial() {
+  const t = await getTranslations("socialProof");
+
   return (
     <section
-      aria-label="Client testimonial"
+      aria-label={t("testimonialAria")}
       className="relative isolate overflow-hidden border-b border-line"
     >
       <AbstractBackdrop
@@ -25,14 +27,12 @@ export function Testimonial() {
               &ldquo;
             </span>
             <blockquote className="-mt-4 font-serif text-2xl leading-snug tracking-tightest text-ink md:text-3xl lg:text-4xl">
-              {testimonial.quote}
+              {t("quote")}
             </blockquote>
             <figcaption className="mt-8 flex flex-col items-center gap-1">
-              <span className="text-sm font-medium text-ink">
-                {testimonial.name}
-              </span>
+              <span className="text-sm font-medium text-ink">{t("name")}</span>
               <span className="text-sm text-ink/60">
-                {testimonial.role}, {testimonial.org}
+                {t("role")}, {t("org")}
               </span>
             </figcaption>
           </figure>
@@ -42,13 +42,16 @@ export function Testimonial() {
   );
 }
 
-export function ClientLogos() {
+export async function ClientLogos() {
+  const t = await getTranslations("socialProof");
+  const clients = t.raw("clients") as string[];
+
   return (
-    <section aria-label="Selected clients" className="border-b border-line">
+    <section aria-label={t("clientsAria")} className="border-b border-line">
       <div className="container-x py-16 md:py-20">
         <Reveal className="text-center">
           <span className="text-xs font-medium uppercase tracking-[0.18em] text-ink/50">
-            Trusted by teams across the public and private sector
+            {t("trustedBy")}
           </span>
         </Reveal>
         <Reveal delay={0.08}>

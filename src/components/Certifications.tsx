@@ -1,7 +1,7 @@
 "use client";
 
 import { useReducedMotion } from "framer-motion";
-import { certifications, certificationsIntro } from "@/content/certifications";
+import { useTranslations } from "next-intl";
 import { Reveal } from "./Reveal";
 
 function SealIcon({ className }: { className?: string }) {
@@ -46,7 +46,7 @@ function MarqueeRow({
         }`}
       >
         {[...items, ...items].map((name, i) => (
-          <div key={i} className="mr-3 md:mr-4" aria-hidden={i >= items.length}>
+          <div key={i} className="me-3 md:me-4" aria-hidden={i >= items.length}>
             <Pill name={name} />
           </div>
         ))}
@@ -57,13 +57,15 @@ function MarqueeRow({
 
 export function Certifications() {
   const reduce = useReducedMotion();
+  const t = useTranslations("certifications");
+  const certifications = t.raw("items") as string[];
 
   const rowA = certifications.filter((_, i) => i % 2 === 0);
   const rowB = certifications.filter((_, i) => i % 2 === 1);
 
   return (
     <section
-      aria-label="Certifications and training"
+      aria-label={t("aria")}
       className="relative isolate overflow-hidden border-b border-line"
     >
       <div
@@ -78,14 +80,12 @@ export function Certifications() {
         <div className="container-x">
           <Reveal className="mx-auto max-w-2xl text-center">
             <span className="text-xs font-medium uppercase tracking-[0.18em] text-brand">
-              {certificationsIntro.eyebrow}
+              {t("eyebrow")}
             </span>
             <h2 className="mt-4 font-serif text-4xl leading-tight tracking-tightest md:text-5xl">
-              {certificationsIntro.heading}
+              {t("heading")}
             </h2>
-            <p className="mx-auto mt-6 max-w-xl text-ink/70">
-              {certificationsIntro.sub}
-            </p>
+            <p className="mx-auto mt-6 max-w-xl text-ink/70">{t("sub")}</p>
           </Reveal>
         </div>
 

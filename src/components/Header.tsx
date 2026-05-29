@@ -1,11 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { Link, usePathname } from "@/i18n/navigation";
 import { site } from "@/content/site";
 import { Logo } from "./Logo";
+import { LocaleSwitcher } from "./LocaleSwitcher";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -14,6 +15,9 @@ type NavItem = (typeof site.nav)[number];
 export function Header() {
   const pathname = usePathname();
   const reduce = useReducedMotion();
+  const tNav = useTranslations("nav");
+  const tHeader = useTranslations("header");
+  const tCta = useTranslations("cta");
   const [scrolled, setScrolled] = useState(false);
   const [hovered, setHovered] = useState<string | null>(null);
   const [open, setOpen] = useState(false);
@@ -62,7 +66,7 @@ export function Header() {
               }
             />
           )}
-          {item.label}
+          {tNav(item.key)}
         </Link>
       </li>
     );
@@ -82,25 +86,25 @@ export function Header() {
         >
           <button
             type="button"
-            aria-label={open ? "Close menu" : "Open menu"}
+            aria-label={open ? tHeader("closeMenu") : tHeader("openMenu")}
             aria-expanded={open}
             aria-controls="mobile-menu"
             onClick={() => setOpen((v) => !v)}
-            className="absolute left-3 inline-flex h-10 w-10 items-center justify-center rounded-full text-ink transition-colors hover:bg-ink/5 md:hidden"
+            className="absolute start-3 inline-flex h-10 w-10 items-center justify-center rounded-full text-ink transition-colors hover:bg-ink/5 md:hidden"
           >
             <span className="relative block h-4 w-5">
               <span
-                className={`absolute left-0 block h-0.5 w-5 rounded-full bg-ink transition-all duration-300 ${
+                className={`absolute start-0 block h-0.5 w-5 rounded-full bg-ink transition-all duration-300 ${
                   open ? "top-1/2 -translate-y-1/2 rotate-45" : "top-0"
                 }`}
               />
               <span
-                className={`absolute left-0 top-1/2 block h-0.5 w-5 -translate-y-1/2 rounded-full bg-ink transition-all duration-300 ${
+                className={`absolute start-0 top-1/2 block h-0.5 w-5 -translate-y-1/2 rounded-full bg-ink transition-all duration-300 ${
                   open ? "opacity-0" : "opacity-100"
                 }`}
               />
               <span
-                className={`absolute left-0 block h-0.5 w-5 rounded-full bg-ink transition-all duration-300 ${
+                className={`absolute start-0 block h-0.5 w-5 rounded-full bg-ink transition-all duration-300 ${
                   open ? "top-1/2 -translate-y-1/2 -rotate-45" : "bottom-0"
                 }`}
               />
@@ -116,7 +120,7 @@ export function Header() {
           <Link
             href="/"
             onClick={() => setOpen(false)}
-            aria-label={`${site.name} — home`}
+            aria-label={tHeader("home", { name: site.name })}
             className="shrink-0 px-2"
           >
             <Logo layout="stacked" />
@@ -128,13 +132,18 @@ export function Header() {
             </ul>
           </div>
 
-          <Link
-            href="/contact"
-            className="absolute right-3 hidden items-center gap-1.5 rounded-full bg-ink px-4 py-2 text-sm font-medium text-paper transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand sm:inline-flex"
-          >
-            {site.cta.primary}
-            <span aria-hidden>→</span>
-          </Link>
+          <div className="absolute end-3 hidden items-center gap-2 sm:flex">
+            <LocaleSwitcher />
+            <Link
+              href="/contact"
+              className="hidden items-center gap-1.5 rounded-full bg-ink px-4 py-2 text-sm font-medium text-paper transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand md:inline-flex"
+            >
+              {tCta("primary")}
+              <span aria-hidden className="rtl:-scale-x-100">
+                →
+              </span>
+            </Link>
+          </div>
         </nav>
 
         <AnimatePresence>
@@ -161,19 +170,24 @@ export function Header() {
                           : "text-ink/70 hover:bg-ink/[0.04] hover:text-ink"
                       }`}
                     >
-                      {item.label}
+                      {tNav(item.key)}
                     </Link>
                   </li>
                 ))}
               </ul>
-              <Link
-                href="/contact"
-                onClick={() => setOpen(false)}
-                className="mt-2 flex items-center justify-center gap-1.5 rounded-2xl bg-ink px-4 py-3 text-base font-medium text-paper transition-colors hover:bg-brand"
-              >
-                {site.cta.primary}
-                <span aria-hidden>→</span>
-              </Link>
+              <div className="mt-2 flex items-center gap-2">
+                <LocaleSwitcher className="flex-1" />
+                <Link
+                  href="/contact"
+                  onClick={() => setOpen(false)}
+                  className="flex flex-1 items-center justify-center gap-1.5 rounded-2xl bg-ink px-4 py-3 text-base font-medium text-paper transition-colors hover:bg-brand"
+                >
+                  {tCta("primary")}
+                  <span aria-hidden className="rtl:-scale-x-100">
+                    →
+                  </span>
+                </Link>
+              </div>
             </motion.nav>
           )}
         </AnimatePresence>

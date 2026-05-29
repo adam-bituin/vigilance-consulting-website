@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { site } from "@/content/site";
 
 function SealIcon({ className }: { className?: string }) {
@@ -23,18 +24,18 @@ function SealIcon({ className }: { className?: string }) {
 
 export function PartnerBadge({ className = "" }: { className?: string }) {
   const [failed, setFailed] = useState(false);
-  const { label, name, logoSrc } = site.partner;
+  const t = useTranslations("partner");
 
   return (
     <span
-      className={`inline-flex items-center gap-2.5 rounded-full border border-line bg-paper/70 py-1.5 pl-2.5 pr-4 shadow-card backdrop-blur ${className}`}
+      className={`inline-flex items-center gap-2.5 rounded-full border border-line bg-paper/70 py-1.5 ps-2.5 pe-4 shadow-card backdrop-blur ${className}`}
     >
       {failed ? (
         <SealIcon className="h-5 w-5 shrink-0 text-brand" />
       ) : (
         /* eslint-disable-next-line @next/next/no-img-element */
         <img
-          src={logoSrc}
+          src={site.partner.logoSrc}
           alt=""
           aria-hidden
           onError={() => setFailed(true)}
@@ -42,7 +43,7 @@ export function PartnerBadge({ className = "" }: { className?: string }) {
         />
       )}
       <span className="text-sm text-ink/70">
-        {label} <span className="font-medium text-ink">{name}</span>
+        {t("label")} <span className="font-medium text-ink">{t("name")}</span>
       </span>
     </span>
   );

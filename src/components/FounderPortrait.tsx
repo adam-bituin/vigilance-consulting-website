@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import {
   motion,
   useReducedMotion,
@@ -13,6 +14,7 @@ const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 export function FounderPortrait({ className = "" }: { className?: string }) {
   const reduce = useReducedMotion();
+  const t = useTranslations("about");
   const [failed, setFailed] = useState(false);
 
   // Drive depth off global page scroll; the hero sits at the top, so the
@@ -30,7 +32,7 @@ export function FounderPortrait({ className = "" }: { className?: string }) {
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/founder.png"
-        alt="Founder of Vigilance Consulting"
+        alt={t("founder.imageAlt")}
         onError={() => setFailed(true)}
         className="absolute inset-0 h-full w-full object-cover object-top"
       />

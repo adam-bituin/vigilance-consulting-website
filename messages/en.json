@@ -1,0 +1,364 @@
+{
+  "nav": {
+    "services": "Services",
+    "training": "Training",
+    "about": "About",
+    "insights": "Insights",
+    "contact": "Contact"
+  },
+  "cta": {
+    "primary": "Book a consultation",
+    "secondary": "See our courses"
+  },
+  "partner": {
+    "label": "Official Partner of",
+    "name": "The KPI Institute"
+  },
+  "header": {
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "home": "{name} — home"
+  },
+  "localeSwitcher": {
+    "label": "Change language",
+    "toArabic": "العربية",
+    "toEnglish": "English"
+  },
+  "footer": {
+    "headingServices": "Services",
+    "headingCompany": "Company",
+    "headingContact": "Contact",
+    "tagline": "Designed for clarity. Built for outcomes.",
+    "rights": "© {year} {name}. All rights reserved.",
+    "address": "P. O. Box 16116, Adliya, Bahrain"
+  },
+  "hero": {
+    "eyebrow": "Strategy · Performance · Leadership",
+    "headlinePrefix": "Until the numbers move,",
+    "headlineAccent": "the work isn’t done.",
+    "sub": "Vigilance Consulting builds the scorecards, trains the managers, and stays on the floor until your strategy shows up in the metrics — and the return is proven."
+  },
+  "servicePillars": {
+    "aria": "Service pillars",
+    "label": "What we do",
+    "heading": "Four practices, built to work as one system.",
+    "intro": "Most consulting stops at the strategy deck. We build the scorecards, train the managers, and certify the methods that keep results compounding after we leave.",
+    "explore": "Explore"
+  },
+  "ctaSection": {
+    "label": "Ready when you are",
+    "heading": "Let’s talk about the result you need by next quarter."
+  },
+  "certifications": {
+    "aria": "Certifications and training",
+    "eyebrow": "Certifications & Training",
+    "heading": "Accredited programs we deliver.",
+    "sub": "We train and certify teams across the disciplines that move strategy into measurable results — from KPIs and OKRs to ROI, leadership, and on-the-job execution.",
+    "items": [
+      "Certified Strategy and Business Planning Professional",
+      "Certified Balanced Scorecard Management System Professional",
+      "Certified KPI Professional",
+      "Certified OKR Professional",
+      "Certified Data Analysis Professional",
+      "Certified ROI Professional",
+      "Certified Benchmarking Professional",
+      "Certified Employee Performance Management Professional",
+      "Certified Innovation Professional",
+      "The Leadership Challenge",
+      "Structured On-the-Job Training"
+    ]
+  },
+  "socialProof": {
+    "testimonialAria": "Client testimonial",
+    "clientsAria": "Selected clients",
+    "trustedBy": "Trusted by teams across the public and private sector",
+    "quote": "Vigilance didn’t hand us a strategy deck and leave. They built the scorecard alongside our managers and stayed on the floor until the numbers actually moved.",
+    "name": "Full Name",
+    "role": "Chief Executive Officer",
+    "org": "Client Organization",
+    "clients": ["Client One", "Client Two", "Client Three", "Client Four"]
+  },
+  "services": {
+    "items": {
+      "strategy": {
+        "title": "Strategy & Performance",
+        "summary": "Translate ambition into a measurable plan — and a system that keeps the organization accountable to it.",
+        "details": "We work with leadership teams to define what winning looks like, decompose it into the few measures that actually drive outcomes, and stand up the cadence that holds people to it. The deliverable is not a deck — it’s a working scorecard your managers run from on Monday morning.",
+        "offerings": [
+          {
+            "name": "Strategy & Business Planning",
+            "blurb": "From ambition to a sequenced, resourced, measurable plan with clear owners."
+          },
+          {
+            "name": "Balanced Scorecard",
+            "blurb": "A four-perspective scorecard tailored to your strategy, cascaded down the org."
+          },
+          {
+            "name": "KPIs & OKRs",
+            "blurb": "The right indicators, defined operationally, with thresholds that drive action."
+          },
+          {
+            "name": "Benchmarking",
+            "blurb": "Compare against peers on the dimensions that decide market position."
+          }
+        ]
+      },
+      "management": {
+        "title": "Management & Development",
+        "summary": "Build the management muscle that turns plans into outcomes — performance, innovation, and on-the-job capability.",
+        "details": "Strategy fails at the front line, not in the boardroom. We install the management practices — feedback, coaching, structured on-the-job training — that compound capability quarter over quarter without bloating the org.",
+        "offerings": [
+          {
+            "name": "Employee Performance Management",
+            "blurb": "Objective-setting, calibration, and review cadences that managers will actually run."
+          },
+          {
+            "name": "Innovation Frameworks",
+            "blurb": "Stage-gated processes for taking ideas from concept to validated outcome."
+          },
+          {
+            "name": "Structured On-the-Job Training",
+            "blurb": "S-OJT systems that transfer expert know-how to new hires in weeks, not years."
+          }
+        ]
+      },
+      "data": {
+        "title": "Data & ROI",
+        "summary": "Put numbers behind every decision. Analyze what matters, prove what works, certify your team to do it again.",
+        "details": "Most organizations have data. Few use it to make decisions. We help you isolate the questions worth answering, build the analyses that answer them defensibly, and certify your people in the ROI methodology so the discipline outlasts the engagement.",
+        "offerings": [
+          {
+            "name": "Data Analysis",
+            "blurb": "Targeted analyses on the questions that change resource allocation decisions."
+          },
+          {
+            "name": "ROI Methodology",
+            "blurb": "Phillips ROI Methodology applied to programs, projects, and initiatives."
+          },
+          {
+            "name": "ROI Certification Training",
+            "blurb": "Certify internal practitioners so ROI work continues without us in the room."
+          }
+        ]
+      },
+      "leadership": {
+        "title": "Leadership",
+        "summary": "Develop leaders who can mobilize people toward what is hard, novel, and worth doing — at every level.",
+        "details": "We partner with leaders to grow the specific practices that move people from compliance to commitment. The Leadership Challenge® and LPI® provide an evidence-based, measurable spine; coaching and cohort work make the practices stick.",
+        "offerings": [
+          {
+            "name": "The Leadership Challenge® Program",
+            "blurb": "Kouzes & Posner’s evidence-based program, delivered as workshops or cohorts."
+          },
+          {
+            "name": "Executive Coaching",
+            "blurb": "1:1 engagements for senior leaders, anchored to LPI data and strategy."
+          },
+          {
+            "name": "Leadership Practices Inventory (LPI)",
+            "blurb": "360° assessment, debrief, and development planning against the five practices."
+          }
+        ]
+      }
+    }
+  },
+  "servicesPage": {
+    "hero": {
+      "eyebrow": "What we do",
+      "title": "Four practices, built to work as",
+      "titleAccent": "one system.",
+      "sub": "Strategy decks don’t move numbers. We build the scorecards, train the managers, and certify the methods that keep results compounding after we leave."
+    },
+    "overviewAria": "Services overview",
+    "practicesLabel": "The practices",
+    "readMore": "Read more"
+  },
+  "about": {
+    "hero": {
+      "eyebrow": "About Vigilance",
+      "title": "Consulting, training, coaching and mentoring —",
+      "titleAccent": "from the Kingdom of Bahrain.",
+      "sub": "Vigilance Consulting S.P.C. is a Bahraini company established in 2014 by entrepreneur Kamal Yousif Al-Shihaby."
+    },
+    "founder": {
+      "eyebrow": "Our story",
+      "heading": "Meet our founder.",
+      "name": "Kamal Yousif Al-Shihaby",
+      "role": "Founder",
+      "body": [
+        "Vigilance Consulting S.P.C. is a Bahraini company, based in the Kingdom of Bahrain, established in 2014 by a Bahraini entrepreneur, Kamal Yousif Al-Shihaby.",
+        "The Company offers consulting, training, coaching and mentoring services."
+      ],
+      "facts": ["Est. 2014", "Kingdom of Bahrain", "English & Arabic"],
+      "imageAlt": "Kamal Yousif Al-Shihaby, founder of Vigilance Consulting"
+    },
+    "partner": {
+      "eyebrow": "Partnership",
+      "title": "The KPI Institute",
+      "body": [
+        "Vigilance Consulting is the partner of The KPI Institute, based in Australia, offering consulting services related to Key Performance Indicators (KPIs) to the public and private sectors.",
+        "The Company also organizes public and in-house certification training programs. All services and training programs are delivered in both English and Arabic by qualified facilitators with hands-on experience in the field."
+      ],
+      "logoAlt": "The KPI Institute"
+    },
+    "expertise": {
+      "eyebrow": "Areas of expertise",
+      "title": "Where we create the most value.",
+      "areas": [
+        {
+          "title": "Strategy & Balanced Scorecard",
+          "body": "Helping public and private institutions apply the Kaplan-Norton Balanced Scorecard to build corporate and HR strategies — tailor-made for each client and aligned across the organization and its people."
+        },
+        {
+          "title": "Human Resources",
+          "body": "Shifting HR from an operational function to a strategic partner that increases organizational competitiveness through optimized use of human capital."
+        },
+        {
+          "title": "Process Optimization",
+          "body": "Redesigning inefficient, costly processes for internal consistency and best-fit alignment with strategy — increasing the value-added, reducing the non-value-added, and eliminating waste."
+        }
+      ],
+      "ctaLabel": "See our courses"
+    }
+  },
+  "training": {
+    "hero": {
+      "eyebrow": "Certifications & Training",
+      "title": "Globally accredited training,",
+      "titleAccent": "delivered locally.",
+      "sub": "As the official partner of The KPI Institute (Australia), Vigilance Consulting delivers certified programs across strategy, KPIs, OKRs, ROI, and leadership — in English and Arabic, for public and private sector teams in Bahrain and the GCC."
+    },
+    "whyAria": "Why train with us",
+    "whyLabel": "Why train with us",
+    "highlights": [
+      {
+        "title": "Official KPI Institute partner",
+        "body": "We deliver The KPI Institute’s globally recognized certifications under a formal partnership — the same curriculum and credential, delivered locally."
+      },
+      {
+        "title": "English & Arabic",
+        "body": "Every program is available in both languages, led by qualified facilitators with hands-on experience across the region."
+      },
+      {
+        "title": "Public or in-house",
+        "body": "Join a scheduled public cohort, or run a private in-house program tailored to your team and sector."
+      }
+    ],
+    "programsAria": "Certification programs",
+    "programsLabel": "Programs",
+    "programsHeading": "Certification programs we deliver.",
+    "programsSub": "Each program ends in a globally recognized KPI Institute credential. Browse the catalog below, then check the live calendar for upcoming dates and registration.",
+    "calendarHeading": "See upcoming course dates",
+    "calendarSub": "Schedules, formats, and registration are managed on The KPI Institute’s partner portal — it opens in a new tab so you won’t lose your place here.",
+    "calendarCta": "View the course calendar"
+  },
+  "contactPage": {
+    "hero": {
+      "eyebrow": "Get in touch",
+      "title": "Tell us the result you need by",
+      "titleAccent": "next quarter.",
+      "sub": "A three-step inquiry, then a real conversation with a senior practitioner — not a sales call."
+    },
+    "whatToExpect": "What to expect",
+    "expect": [
+      "We read every inquiry. No sales chatbot, no SDR queue.",
+      "A senior practitioner responds within one business day.",
+      "First call is a working session — we leave you with something useful whether or not we engage."
+    ],
+    "reachUs": "Reach us directly"
+  },
+  "insights": {
+    "hero": {
+      "eyebrow": "Insights",
+      "title": "Field notes from",
+      "titleAccent": "the work.",
+      "sub": "Short, honest pieces on what works in execution, leadership, and measurement — drawn from the engagements we’re inside right now."
+    },
+    "comingSoon": "Coming soon",
+    "heading": "The first essays are being written.",
+    "body": "Insights launch alongside our first published case studies. If you’d like to be notified when they go live, get in touch."
+  },
+  "leadForm": {
+    "steps": {
+      "interest": {
+        "label": "Your interest",
+        "heading": "What can we help with?",
+        "sub": "Select all that apply. We’ll route you to the right practitioner."
+      },
+      "context": {
+        "label": "Your context",
+        "heading": "Tell us about your organization.",
+        "sub": "This helps us scope the conversation and bring the right people."
+      },
+      "you": {
+        "label": "About you",
+        "heading": "Last step — how do we reach you?",
+        "sub": "We respond to every qualified inquiry within one business day."
+      }
+    },
+    "companySize": {
+      "individual": "Individual / self",
+      "1-10": "1–10",
+      "11-50": "11–50",
+      "51-250": "51–250",
+      "251-1000": "251–1,000",
+      "1000plus": "1,000+"
+    },
+    "role": {
+      "csuite": "C-suite / Owner",
+      "vp": "VP / Director",
+      "manager": "Manager",
+      "ic": "Individual contributor",
+      "hrld": "HR / L&D",
+      "other": "Other"
+    },
+    "fields": {
+      "orgSize": "Organization size",
+      "role": "Your role",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone (optional)",
+      "result": "What’s the result you need? (optional)"
+    },
+    "selectPlaceholder": "Select…",
+    "back": "Back",
+    "continue": "Continue",
+    "send": "Send inquiry",
+    "sending": "Sending…",
+    "received": "Received",
+    "thankYouHeading": "Thank you — we’ll be in touch.",
+    "thankYouBody": "A practitioner will reach out within one business day at {email}. In the meantime, you can keep exploring our services or read recent insights.",
+    "genericError": "Something went wrong."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "body": "The page you’re looking for doesn’t exist or has moved.",
+    "home": "Back to home"
+  },
+  "metadata": {
+    "default": {
+      "title": "Strategy, performance, and leadership consulting.",
+      "description": "We help organizations turn strategy into measurable performance — through KPIs, OKRs, leadership development, and ROI-driven training."
+    },
+    "services": {
+      "title": "Services",
+      "description": "Strategy & Performance, Management & Development, Data & ROI, and Leadership — four practices that work together as one system."
+    },
+    "about": {
+      "title": "About",
+      "description": "Vigilance Consulting S.P.C. is a Bahraini consulting firm established in 2014 — partner of The KPI Institute, delivering strategy, Balanced Scorecard, HR and process optimization in English and Arabic."
+    },
+    "training": {
+      "title": "Training & Certification",
+      "description": "Globally accredited KPI Institute certification programs — delivered in Bahrain and across the GCC, in English and Arabic, as public courses or in-house."
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Tell us the result you need. A senior practitioner will be in touch within one business day."
+    },
+    "insights": {
+      "title": "Insights",
+      "description": "Field notes from the work — scorecards, leadership, ROI methodology, and what we’re learning from current engagements."
+    }
+  }
+}

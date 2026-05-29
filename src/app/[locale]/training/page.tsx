@@ -1,58 +1,66 @@
 import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
 import { CTASection } from "@/components/CTASection";
 import { Reveal } from "@/components/Reveal";
 import { AbstractBackdrop } from "@/components/AbstractBackdrop";
-import { certifications } from "@/content/certifications";
 import { site } from "@/content/site";
 
-export const metadata: Metadata = {
-  title: "Training & Certification",
-  description:
-    "Globally accredited KPI Institute certification programs — delivered in Bahrain and across the GCC, in English and Arabic, as public courses or in-house.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "metadata" });
+  return {
+    title: t("training.title"),
+    description: t("training.description"),
+    alternates: {
+      canonical: locale === "en" ? "/training" : `/${locale}/training`,
+      languages: { en: "/training", ar: "/ar/training" },
+    },
+  };
+}
 
-const highlights = [
-  {
-    title: "Official KPI Institute partner",
-    body: "We deliver The KPI Institute's globally recognized certifications under a formal partnership — the same curriculum and credential, delivered locally.",
-  },
-  {
-    title: "English & Arabic",
-    body: "Every program is available in both languages, led by qualified facilitators with hands-on experience across the region.",
-  },
-  {
-    title: "Public or in-house",
-    body: "Join a scheduled public cohort, or run a private in-house program tailored to your team and sector.",
-  },
-];
+export default async function TrainingPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("training");
+  const tCert = await getTranslations("certifications");
 
-export default function TrainingPage() {
+  const highlights = t.raw("highlights") as { title: string; body: string }[];
+  const certifications = tCert.raw("items") as string[];
+
   return (
     <>
       <PageHero
-        eyebrow="Certifications & Training"
-        title="Globally accredited training,"
-        titleAccent="delivered locally."
-        sub="As the official partner of The KPI Institute (Australia), Vigilance Consulting delivers certified programs across strategy, KPIs, OKRs, ROI, and leadership — in English and Arabic, for public and private sector teams in Bahrain and the GCC."
+        eyebrow={t("hero.eyebrow")}
+        title={t("hero.title")}
+        titleAccent={t("hero.titleAccent")}
+        sub={t("hero.sub")}
       />
 
       <section
-        aria-label="Why train with us"
+        aria-label={t("whyAria")}
         className="relative isolate overflow-hidden border-b border-line"
       >
         <AbstractBackdrop
           src="/bg-testimonial.webp"
           opacity={0.2}
           parallax={50}
-          className="left-auto right-0 w-3/5 md:w-1/2"
+          className="start-auto end-0 w-3/5 md:w-1/2"
           imgClassName="object-cover object-center"
           maskClassName="[mask-image:radial-gradient(55%_60%_at_72%_42%,#000,transparent_74%)]"
         />
         <div className="container-x py-16 md:py-20">
           <Reveal>
             <span className="text-xs font-medium uppercase tracking-[0.18em] text-brand">
-              Why train with us
+              {t("whyLabel")}
             </span>
           </Reveal>
           <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 md:gap-5">
@@ -74,23 +82,16 @@ export default function TrainingPage() {
         </div>
       </section>
 
-      <section
-        aria-label="Certification programs"
-        className="border-b border-line"
-      >
+      <section aria-label={t("programsAria")} className="border-b border-line">
         <div className="container-x py-20 md:py-28">
           <Reveal className="max-w-2xl">
             <span className="text-xs font-medium uppercase tracking-[0.18em] text-brand">
-              Programs
+              {t("programsLabel")}
             </span>
             <h2 className="mt-4 font-serif text-3xl leading-tight tracking-tightest md:text-5xl">
-              Certification programs we deliver.
+              {t("programsHeading")}
             </h2>
-            <p className="mt-6 text-lg text-ink/70">
-              Each program ends in a globally recognized KPI Institute
-              credential. Browse the catalog below, then check the live calendar
-              for upcoming dates and registration.
-            </p>
+            <p className="mt-6 text-lg text-ink/70">{t("programsSub")}</p>
           </Reveal>
 
           <ul className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -115,12 +116,10 @@ export default function TrainingPage() {
             <div className="mt-12 flex flex-col items-start gap-4 rounded-xl border border-line bg-muted p-7 sm:flex-row sm:items-center sm:justify-between md:p-8">
               <div>
                 <h3 className="font-serif text-2xl tracking-tightest text-ink">
-                  See upcoming course dates
+                  {t("calendarHeading")}
                 </h3>
                 <p className="mt-2 max-w-xl text-sm text-ink/65 md:text-base">
-                  Schedules, formats, and registration are managed on The KPI
-                  Institute&apos;s partner portal — it opens in a new tab so you
-                  won&apos;t lose your place here.
+                  {t("calendarSub")}
                 </p>
               </div>
               <a
@@ -129,7 +128,7 @@ export default function TrainingPage() {
                 rel="noopener noreferrer"
                 className="inline-flex shrink-0 items-center gap-2 rounded-full bg-brand px-6 py-3.5 text-base font-medium text-paper shadow-card transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-hover hover:shadow-lift"
               >
-                View the course calendar
+                {t("calendarCta")}
                 <span aria-hidden>↗</span>
               </a>
             </div>

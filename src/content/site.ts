@@ -1,6 +1,8 @@
+// Non-translated config + structural data. All display copy lives in
+// messages/{locale}.json. The brand name stays Latin in both locales.
 export const site = {
   name: "Vigilance Consulting",
-  shortName: "Vigilance",
+  // English source copy — also used by the (non-localized) OG/Twitter images.
   tagline: "Strategy, performance, and leadership consulting.",
   description:
     "We help organizations turn strategy into measurable performance — through KPIs, OKRs, leadership development, and ROI-driven training.",
@@ -8,22 +10,16 @@ export const site = {
   url: "https://vigilance-consulting-website.vercel.app",
   email: "info@vigilanceconsulting.com",
   phone: "+973 17226000",
-  address: "P. O. Box 16116, Adliya, Bahrain",
   coursesUrl: "https://partnership.kpiinstitute.org/scheduled-courses/",
   partner: {
-    label: "Official Partner of",
-    name: "The KPI Institute",
     logoSrc: "/kpi-institute.svg",
   },
-  cta: {
-    primary: "Book a consultation",
-    secondary: "See our courses",
-  },
+  // `key` maps to the `nav` namespace in the message catalogs.
   nav: [
-    { label: "Services", href: "/services" },
-    { label: "Training", href: "/training" },
-    { label: "About", href: "/about" },
-    { label: "Insights", href: "/insights" },
-    { label: "Contact", href: "/contact" },
+    { key: "services", href: "/services" },
+    { key: "training", href: "/training" },
+    { key: "about", href: "/about" },
+    { key: "insights", href: "/insights" },
+    { key: "contact", href: "/contact" },
   ],
 } as const;

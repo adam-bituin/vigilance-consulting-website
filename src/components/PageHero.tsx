@@ -15,7 +15,7 @@ export function PageHero({ eyebrow, title, titleAccent, sub }: PageHeroProps) {
         src="/bg-accent.webp"
         opacity={0.45}
         parallax={70}
-        className="left-auto right-0 w-3/5 md:w-1/2"
+        className="start-auto end-0 w-3/5 md:w-1/2"
         imgClassName="object-cover object-center"
         maskClassName="[mask-image:linear-gradient(to_left,#000_5%,transparent_82%)]"
       />
