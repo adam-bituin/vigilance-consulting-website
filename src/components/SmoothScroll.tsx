@@ -8,7 +8,11 @@ export function SmoothScroll() {
     const prefersReduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
-    if (prefersReduced) return;
+    // Lenis only smooths wheel input. Touch devices gain nothing from it but
+    // would still pay for a permanent rAF loop, which keeps the page "hot" and
+    // gets idle mobile tabs discarded under memory pressure. Skip them.
+    const finePointer = window.matchMedia("(pointer: fine)").matches;
+    if (prefersReduced || !finePointer) return;
 
     const lenis = new Lenis({
       duration: 1.1,
@@ -21,10 +25,23 @@ export function SmoothScroll() {
       lenis.raf(time);
       frame = requestAnimationFrame(raf);
     };
-    frame = requestAnimationFrame(raf);
+    const start = () => {
+      if (!frame) frame = requestAnimationFrame(raf);
+    };
+    const stop = () => {
+      if (frame) {
+        cancelAnimationFrame(frame);
+        frame = 0;
+      }
+    };
+    const onVisibility = () => (document.hidden ? stop() : start());
+
+    start();
+    document.addEventListener("visibilitychange", onVisibility);
 
     return () => {
-      cancelAnimationFrame(frame);
+      stop();
+      document.removeEventListener("visibilitychange", onVisibility);
       lenis.destroy();
     };
   }, []);
