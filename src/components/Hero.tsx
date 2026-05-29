@@ -3,12 +3,14 @@ import { hero } from "@/content/stats";
 import { site } from "@/content/site";
 import { FounderPortrait } from "./FounderPortrait";
 import { HeroBackdrop } from "./HeroBackdrop";
+import { HeroVideo } from "./HeroVideo";
 import { PartnerBadge } from "./PartnerBadge";
 import { Reveal } from "./Reveal";
 
 export function Hero() {
   return (
     <section className="relative isolate overflow-hidden text-ink">
+      <HeroVideo />
       <HeroBackdrop />
 
       <div className="container-x relative flex flex-col items-center pt-28 pb-24 text-center md:pt-32 md:pb-28">
